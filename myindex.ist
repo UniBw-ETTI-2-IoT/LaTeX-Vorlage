@@ -1,0 +1,15 @@
+%%%
+%%%  Grossbuchstaben vor jede Gruppe im Index
+%%%
+heading_prefix  "{\\bfseries "         % vor dem Buchstaben auszufuehren
+heading_suffix  "\\hfill}\\nopagebreak\n"  % nach dem Buchstaben
+                                           % auszufuehren
+symhead_positive "Symbole"
+numhead_positive "Zahlen"
+headings_flag    1                        % Ueberschriften einschalten
+                                          % (Grossbuchstaben)
+delim_0 "\\dotfill "%         instead of default ", "
+delim_1 "\\dotfill "%         instead of default ", "
+delim_2 "\\dotfill "%         instead of default ", "
+                                          
+

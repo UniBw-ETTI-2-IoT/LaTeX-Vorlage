@@ -1,0 +1,132 @@
+% Ablauf zum Erstellen des Dokuments
+% #compilieren 
+% pdflatex bachelorarbeit.tex
+% für die Erstellung des Index mit Formatierung aus myindex.ist
+% makeindex -s myindex.ist bachelorarbeit 
+% Erstellung des Literaturverzeichnisses
+% biber bachelorarbeit
+% nocheinmal compilieren um alle Referenzen aufzuloesen
+% pdflatex bachelorarbeit.tex
+
+% Hauptdokument bachelorarbeit
+% Template fuer verschiedene bachelorarbeit
+% A4 Papier mit 11 pt Schrift und Titelseite ohne Seitennummer sowie
+% Ueberschrift ber der Zusammenfassung, Abbildungs, und Tabellenverzeichnis sowie
+% Literaturverzeichnis automatisch hinzufgen, Kein Punkt hinter Kapitelnummern
+\documentclass[
+a4paper,					% A4 Papier
+11pt,							% 11pt ist der eingestellte Standard
+DIV=12,						% Parameter zur Berechnung des Satzspiegels
+BCOR=10mm,     		% 10 mm Bindekorrektur
+twoside, 					% doppelseitiges Layout
+openright, 				% immer neues Kapitel auf rechter Seite beginnen
+%cleardoubleppage=plain, %
+titlepage,      	% mit Titelseite
+abstract=on,     	% Zusammenfassung als Ueberschrift
+listof=totoc,     	% Verzeichnisse im Inhaltsverzeichnis
+bibliography=totoc,         % Literaturverzeichnis zum Inhaltsverzeichnis
+index=totoc,         % Index zum Inhaltsverzeichnis
+headings=normal, 	% normalgrosse Ueberschriften
+numbers=noenddot, % 1.2 statt 1.2.
+headsepline     	% Linie unter Kopfzeile
+%,draft						% bindet die Bilder nicht mit ein
+]{scrreprt}				% Dokumentenklasse --> scrguide.pdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{typearea}           						% optimale Berechnung des Seitenlayouts
+
+\usepackage[utf8]{inputenc}           		% komfortable Eingabe von Umlauten % bei Nutzung von LuaLaTeX unnoetig
+\usepackage[T1]{fontenc}										% Font encoding
+\usepackage[english,german,ngerman]{babel} 	% deutsche und neue deutsche Rechtschreibung, english fuer englisches Abstract
+\selectlanguage{ngerman} 
+\addto\captionsngerman{%										% Zusammenfassung in Kurzfassung umbenennen
+\renewcommand{\abstractname}{Kurzfassung}		
+}
+\usepackage{scrlayer-scrpage}  											% Kopfzeilen --> scrguide.pdf
+\usepackage{makeidx}                        % für Erstellung eines Index
+\makeindex              										% erstelle Index	
+\usepackage[autostyle]{csquotes}
+\usepackage[backend=biber, style=alphabetic]{biblatex}
+\ExecuteBibliographyOptions{ 
+sorting=nyt, %Sortierung Autor, Titel, Jahr 
+bibwarn=true, %Probleme mit den Daten, die Backend betreffen anzeigen 
+isbn=false, %keine isbn anzeigen 
+url=true %keine url anzeigen 
+}
+\addbibresource{literatur.bib}
+\usepackage{url}                            % fuer URL Darstellung z.B. bei BibTeX \url{www.tum.de}
+\usepackage{acronym}
+\usepackage{multirow}												% Spezielles Paket für Tabellen --> titelseite_fhm.tex	
+\usepackage{graphicx}  											% Einbinden von Graphiken im JPG, PDF und PNG Format
+\usepackage{subfigure}											% Ermoeglicht das Einbinden von Grafiken als Untergrafiken mit Nummerierung
+\usepackage{pdflscape}											% dreht Querformatseiten automatisch im PDF, kein Kopfdrehen notwendig
+\usepackage{amssymb}												% spezielle Mathesymbole
+\usepackage{amsmath}												% Mathe - Umgebungen
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\usepackage{listings}
+																						% Paket um Algorithmen schön darzustellen	
+%\usepackage[german,algochapter, ruled,titlenumbered,lined]{algorithm2e}
+%aendert Ueberschriften usw. in altes Aussehen
+%\setkomafont{disposition}{\normalcolor\bfseries}
+																						% hyperref für Links im PDF Dokument
+\usepackage
+[hyperindex,																 
+%plainpages=false, 
+pdfpagelabels,
+bookmarks,
+colorlinks=false,	
+bookmarksopen=false,
+bookmarksnumbered=true,
+pdfauthor={Student Superschlau}, % Namen anpassen 
+hypertexnames=true,
+pdfkeywords={Bachelorarbeit},
+pdftitle={bachelorarbeit, Fakult"at ETTI, UniBW Neubiberg},
+pdfsubject={Titel der Arbeit}
+]
+{hyperref}																	% Paket sollte immer zuletzt eingebunden werden		
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%Beginn des Dokuments%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\automark[section]{chapter}									% automatisch Kapitel links und Abschnitt rechts
+\pagestyle{scrheadings}											% wechselnde Kolumnentitel
+%\include{inhalt/titelseite_tum_diss}						% Titelseite der TU München
+%\include{inhalt/titelseite_fhm}							% Titelseite der FH Mnchen
+%\include{inhalt/titelseite_ovgu}							% Titelseite der OVGU
+\include{inhalt/titelseite_unibw}							% Titelseite der UniBW
+\cleardoubleemptypage												% keine Seitenzahl auf der Rückseite der Titelseite
+
+
+\rofoot[\empty]{\empty}											% Seitenzahl entfernen
+\include{inhalt/erklaerung}									% ehrenwoertliche Erklaerung
+\rofoot[\pagemark]{\pagemark}								% Seitenzahl wieder beginnen
+\cleardoubleemptypage												% keine Seitenzahl auf der Rueckseite der Erklaerung
+
+\include{inhalt/kurzfassung}								% Abstract
+\cleardoubleemptypage												% keine Seitenzahl auf der Rueckseite der Kurzfassung
+
+\pagenumbering{roman}												% Seitennummerierung fuer das Inhaltsverzeichnis arabisch
+%\pdfbookmark[1]{\contentsname}{tocanc} 		% Inhaltsverzeichnis ins PDF als Bookmark
+\tableofcontents 
+\cleardoublepage
+\pagenumbering{arabic} 											% arabische Ziffern fuer den Rest des Dokuments
+%%%%%%%%%%%%%%%%%%%hier kommen die Kapitel%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{inhalt/einleitung}
+\include{inhalt/grundlagen}
+
+%%weitere Dateien hier einfgen um das Dokument zu partitionieren
+% Sinnvoll ist nach Grundlagen und Methoden, z.b.
+% Hardware \& Software
+% Ergebnisse
+% Zusammenfassung
+		
+\include{inhalt/verzeichnisse}							% alle Verzeichnisse
+
+%%%%%%-------Anhang
+%\include{anhang}														% eventuell einen Anhang	
+
+\printindex																	% Index hier hin drucken
+\end{document}
+%----------Ende des Dokuments-------------------%
