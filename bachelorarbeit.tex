@@ -15,7 +15,7 @@
 % Literaturverzeichnis automatisch hinzufgen, Kein Punkt hinter Kapitelnummern
 \documentclass[
 a4paper,					% A4 Papier
-11pt,							% 11pt ist der eingestellte Standard
+fontsize=11pt,							% 11pt ist der eingestellte Standard
 DIV=12,						% Parameter zur Berechnung des Satzspiegels
 BCOR=10mm,     		% 10 mm Bindekorrektur
 twoside, 					% doppelseitiges Layout
@@ -32,10 +32,11 @@ headsepline     	% Linie unter Kopfzeile
 %,draft						% bindet die Bilder nicht mit ein
 ]{scrreprt}				% Dokumentenklasse --> scrguide.pdf
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\usepackage{scrhack}
+\usepackage{tocbasic}
 \usepackage{typearea}           						% optimale Berechnung des Seitenlayouts
 
-\usepackage[utf8]{inputenc}           		% komfortable Eingabe von Umlauten % bei Nutzung von LuaLaTeX unnoetig
+%\usepackage[utf8]{inputenc}           		% komfortable Eingabe von Umlauten % bei Nutzung von LuaLaTeX unnoetig
 \usepackage[T1]{fontenc}										% Font encoding
 \usepackage[english,german,ngerman]{babel} 	% deutsche und neue deutsche Rechtschreibung, english fuer englisches Abstract
 \selectlanguage{ngerman} 
