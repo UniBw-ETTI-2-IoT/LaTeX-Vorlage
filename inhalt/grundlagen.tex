@@ -5,7 +5,7 @@ Als Beispiel wird hier schon mal ein Bild eingefügt, damit ein neuer Bacheloran
 
 \begin{figure}
 	\centering
-		\includegraphics{bilder/garching.jpg}
+		\includegraphics[width=\textwidth]{bilder/garching.jpg}
 	\caption{Bild der Mathe und Info Gebäudes in Garching b. München}
 	\label{fig:garching}
 \end{figure}
@@ -24,7 +24,14 @@ Dies ist eine einfache Gleichung
   y & = & ax^2 + bx + c
 \end{eqnarray}
 
+In Abschnitt \ref{sec:gleichungen} erkläre ich den Gleichung \ref{gl:einfache_gleichung} und die ist ganz prima. 
 
+
+\begin{eqnarray}\label{gl:einfache_gleichung2}
+	y & = & ax^2 + bx + c +f
+\end{eqnarray}
+
+In Abschnitt \ref{sec:gleichungen} erkläre ich den Gleichung \ref{gl:einfache_gleichung2} und die ist ganz prima. 
 
 \section{Quellcode}
 Man kann mit \LaTeX{} super Quelltext oder Snippets setzen. Dazu muss man die Sprache konfigurieren und wie man möchte, dass der Quellcode aussieht. Das kann pro Snippet passieren. . 
@@ -64,3 +71,42 @@ Tabellen sind ebenfalls gleitende Objekte so wie Bilder.
 	\end{tabular}
 	\caption{Eine Tabelle}
 \end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics{bilder/garching.jpg}
+	\caption[Meine Bacheloranden]{Meine Bacheloranden untereinander im Zoomcall. Meine Bacheloranden untereinander im ZoomcallMeine Bacheloranden untereinander im ZoomcallMeine Bacheloranden untereinander im ZoomcallMeine Bacheloranden untereinander im Zoomcall}
+	\label{fig:screenshot}
+\end{figure}
+\todo{Hier muss ich noch die Beschreibung ergänzen}
+\begin{description}
+	\item[ Beschreibung] Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich 
+	
+	\item[ Beschreibung] Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich Hier beschreibe ich 
+\end{description}
+Eine Aufzählung
+\begin{itemize}
+	\item ein Punkt
+	\item noch ein Punkt 
+	\begin{itemize}
+		\item ein Unterpunkt
+	\end{itemize}
+	\item ein dritter Punkt
+\end{itemize}
+
+\begin{enumerate}
+	\item Punkt
+	\item Punkt
+	\begin{itemize}
+		\item bla
+		\item blub
+	\end{itemize}
+	\item Punkt
+	\item Punkt
+	\begin{enumerate}
+		\item weiterer Punkt
+		\item noch ein Argument
+	\end{enumerate}
+	\item Punkt
+	
+\end{enumerate}
