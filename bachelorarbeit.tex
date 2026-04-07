@@ -38,6 +38,7 @@ headsepline     	% Linie unter Kopfzeile
 
 %\usepackage[utf8]{inputenc}           		% komfortable Eingabe von Umlauten % bei Nutzung von LuaLaTeX unnoetig
 \usepackage[T1]{fontenc}										% Font encoding
+\usepackage{palatino}
 \usepackage[english,german,ngerman]{babel} 	% deutsche und neue deutsche Rechtschreibung, english fuer englisches Abstract
 \selectlanguage{ngerman} 
 \addto\captionsngerman{%										% Zusammenfassung in Kurzfassung umbenennen
@@ -47,7 +48,7 @@ headsepline     	% Linie unter Kopfzeile
 \usepackage{makeidx}                        % für Erstellung eines Index
 \makeindex              										% erstelle Index	
 \usepackage[autostyle]{csquotes}
-\usepackage[backend=biber, style=alphabetic]{biblatex}
+\usepackage[backend=biber, style=numeric]{biblatex}
 \ExecuteBibliographyOptions{ 
 sorting=nyt, %Sortierung Autor, Titel, Jahr 
 bibwarn=true, %Probleme mit den Daten, die Backend betreffen anzeigen 
